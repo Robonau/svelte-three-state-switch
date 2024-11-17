@@ -1,24 +1,45 @@
-# create-svelte
+# svelte-skeleton-three-state-switch
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+a simple three state switch for use with skeleton in svelte 
+(it can be used without skeleton you will just need to change the skeleton specific default classes)
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## usage
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install svelte-skeleton-three-state-switch
 ```
+
+add the svelte-skeleton-three-state-switch content to your `tailwind.config.ts` like so
+```ts
+export default {
+	darkMode: 'class',
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		join(
+			require.resolve('svelte-skeleton-three-state-switch'),
+			'../**/*.{html,js,svelte,ts}'
+		),
+        ...
+	],
+	theme: {
+        ...
+    },
+	plugins: [
+        ...
+    ]
+};
+```
+
+it can then be imported like anything else
+```ts
+import { ThreeStateSwitch } from 'svelte-skeleton-three-state-switch';
+```
+
+an example is avalable in the routes directory of this project
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Once you've cloned the project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start the development server with:
 
 ```bash
 npm run dev
@@ -27,7 +48,7 @@ npm run dev
 npm run dev -- --open
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+Everything inside `src/lib` is part of the library, everything inside `src/routes` is a showcase.
 
 ## Building
 
@@ -45,11 +66,9 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
 ## Publishing
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
+Go into the `package.json` and give your package the desired name through the `"name"` option.
 
 To publish your library to [npm](https://www.npmjs.com):
 

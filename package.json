@@ -1,6 +1,6 @@
 {
 	"name": "svelte-skeleton-three-state-switch",
-	"license": "MIT",
+	"license": "./LICENSE",
 	"version": "0.0.4",
 	"scripts": {
 		"dev": "vite dev",

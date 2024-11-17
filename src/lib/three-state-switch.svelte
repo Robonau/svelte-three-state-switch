@@ -33,11 +33,6 @@
 		label?: string;
 		name?: string;
 		state?: 'on' | 'intermediate' | 'off';
-		onkeydown?: (
-			event: KeyboardEvent & {
-				currentTarget: EventTarget & HTMLDivElement;
-			}
-		) => void;
 		children?: Snippet;
 		disabled?: boolean | null;
 		class?: CssClasses;
@@ -130,8 +125,6 @@
 
 	function OnKeyDown(event: KeyboardEvent & { currentTarget: EventTarget & HTMLDivElement }) {
 		if (['Enter', ' '].includes(event.key)) {
-			event.preventDefault();
-			if (onkeydown) onkeydown(event);
 			const inputElem = event.currentTarget.firstChild as HTMLLabelElement;
 			inputElem.click();
 		}
