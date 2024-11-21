@@ -168,11 +168,11 @@
 		<!-- Label -->
 		{#if labelBefore}
 			{#if children}
-				<div class="slide-toggle-text ml-3">
+				<div class="slide-toggle-text ml-3 {labelText}">
 					{@render children()}
 				</div>
 			{:else}
-				<div class="slide-toggle-text ml-3">{label}</div>
+				<div class="slide-toggle-text ml-3 {labelText}">{label}</div>
 			{/if}
 		{/if}
 		<!-- Slider Track/Thumb -->
@@ -190,11 +190,11 @@
 		<!-- Label -->
 		{#if !labelBefore}
 			{#if children}
-				<div class="slide-toggle-text ml-3">
+				<div class="slide-toggle-text ml-3 {labelText}">
 					{@render children()}
 				</div>
 			{:else}
-				<div class="slide-toggle-text ml-3">{label}</div>
+				<div class="slide-toggle-text ml-3 {labelText}">{label}</div>
 			{/if}
 		{/if}
 	</label>
