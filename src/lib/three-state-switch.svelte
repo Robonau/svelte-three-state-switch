@@ -36,6 +36,7 @@
 		children?: Snippet;
 		disabled?: boolean | null;
 		class?: CssClasses;
+		labelBefore?: boolean;
 		[key: string]: unknown;
 	}
 
@@ -58,6 +59,7 @@
 		disabled,
 		onkeydown,
 		children,
+		labelBefore = false,
 		class: classNames = '',
 		...rest
 	}: Props = $props();
@@ -161,6 +163,16 @@
 			{disabled}
 			{...rest}
 		/>
+		<!-- Label -->
+		{#if labelBefore}
+			{#if children}
+				<div class="slide-toggle-text ml-3">
+					{@render children()}
+				</div>
+			{:else}
+				<div class="slide-toggle-text ml-3">{label}</div>
+			{/if}
+		{/if}
 		<!-- Slider Track/Thumb -->
 		<div class="slide-toggle-track {classesTrack}" class:cursor-not-allowed={disabled}>
 			<div class="slide-toggle-thumb {classesThumb}" class:cursor-not-allowed={disabled}>
@@ -174,10 +186,14 @@
 			</div>
 		</div>
 		<!-- Label -->
-		{#if children}
-			<div class="slide-toggle-text ml-3">
-				{@render children()}
-			</div>
+		{#if !labelBefore}
+			{#if children}
+				<div class="slide-toggle-text ml-3">
+					{@render children()}
+				</div>
+			{:else}
+				<div class="slide-toggle-text ml-3">{label}</div>
+			{/if}
 		{/if}
 	</label>
 </div>

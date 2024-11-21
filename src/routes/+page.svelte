@@ -68,3 +68,11 @@
 <div class="flex justify-center align-middle">
 	{switchState}
 </div>
+<div class="flex justify-center align-middle">
+	<ThreeStateSwitch bind:state={switchState} label="label text">label after</ThreeStateSwitch>
+</div>
+<div class="flex justify-center align-middle">
+	<ThreeStateSwitch bind:state={switchState} labelBefore label="label text">
+		label before
+	</ThreeStateSwitch>
+</div>
