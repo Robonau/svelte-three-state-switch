@@ -37,6 +37,7 @@
 		disabled?: boolean | null;
 		class?: CssClasses;
 		labelBefore?: boolean;
+		labelText?: CssClasses;
 		[key: string]: unknown;
 	}
 
@@ -60,6 +61,7 @@
 		onkeydown,
 		children,
 		labelBefore = false,
+		labelText = 'flex-1',
 		class: classNames = '',
 		...rest
 	}: Props = $props();
